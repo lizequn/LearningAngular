@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" ng-app = "myfirstangular">
+<head ng-controller = "MyPhoneListCtrl">
+  <meta charset="utf-8">
+  <title ng-bind="title"></title>
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="lib/angular/angular.js"></script>
+  <script type="text/javascript" src ="js/controllers.js" ></script>
+</head>
+<body ng-controller="MyPhoneListCtrl">
+	<div>
+		<div>
+			<div>
+				<!-- sider bar-->
+				Search:<input ng-model="query" />
+				Sort by:
+				<select ng-model="orderProp">
+					<option value = "name">Alphabetical</option>
+					<option value = "age">Newest</option>
+					<option value = '-age'>Oldest</option>
+				</select>
+			</div>
+			<div>
+				<!-- body content -->
+				<p>Total number of products : {{apples.length}}</p>
+
+			  	<ul>
+			  		<li ng-repeat = "product in apples | filter:query|orderBy:orderProp">
+			  			{{product.name}}
+						<br>
+			  			{{product.snippet}}
+			  		</li>
+			  	</ul>
+			</div>
+		</div>
+   	</div>
+</body>
+</html>
